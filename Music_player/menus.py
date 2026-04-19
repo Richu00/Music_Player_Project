@@ -149,14 +149,15 @@ def playback_menu() -> None:
 
     Options
     -------
-    1  Play the current song.
-    2  Skip to the next song (respects shuffle and repeat settings).
-    3  Go back to the previous song.
-    4  Pause playback.
-    5  Set the volume (0–100).
-    6  Toggle repeat mode on / off.
-    7  Toggle shuffle mode on / off.
-    8  Show elapsed playback time for the current song.
+    1  Play the current song (fresh start, resets elapsed time).
+    2  Resume from where the song was paused (keeps elapsed time).
+    3  Skip to the next song (respects shuffle and repeat settings).
+    4  Go back to the previous song.
+    5  Pause playback.
+    6  Set the volume (0–100).
+    7  Toggle repeat mode on / off.
+    8  Toggle shuffle mode on / off.
+    9  Show elapsed playback time for the current song.
     0  Return to the main menu.
     """
     if not pl.current_playlist:
@@ -168,26 +169,28 @@ def playback_menu() -> None:
 --- PLAYBACK MENU ({pl.current_playlist.name}) ---
 
 1. Play
-2. Next
-3. Previous
-4. Pause
-5. Change Volume
-6. Toggle Repeat
-7. Toggle Shuffle
-8. Show Progress
+2. Resume
+3. Next
+4. Previous
+5. Pause
+6. Change Volume
+7. Toggle Repeat
+8. Toggle Shuffle
+9. Show Progress
 0. Back
 """)
         choice = input("Choose option: ")
 
         if   choice == "1": pl.current_playlist.play()
-        elif choice == "2": pl.current_playlist.next_song()
-        elif choice == "3": pl.current_playlist.previous_song()
-        elif choice == "4": pl.current_playlist.pause()
-        elif choice == "6": pl.current_playlist.toggle_repeat()
-        elif choice == "7": pl.current_playlist.toggle_shuffle()
-        elif choice == "8": pl.current_playlist.show_progress()
+        elif choice == "2": pl.current_playlist.resume()
+        elif choice == "3": pl.current_playlist.next_song()
+        elif choice == "4": pl.current_playlist.previous_song()
+        elif choice == "5": pl.current_playlist.pause()
+        elif choice == "7": pl.current_playlist.toggle_repeat()
+        elif choice == "8": pl.current_playlist.toggle_shuffle()
+        elif choice == "9": pl.current_playlist.show_progress()
 
-        elif choice == "5":
+        elif choice == "6":
             # Volume requires parsing — wrap in try/except for safety
             try:
                 vol = int(input("Enter volume (0-100): "))

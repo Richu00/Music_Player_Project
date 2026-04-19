@@ -54,6 +54,7 @@ The **master library** is a local simulation of what would, in a production app,
 | **Favorites** | Global favorites list shared across all playlists |
 | **Search** | Case-insensitive search by title or artist across the full library |
 | **Merge Sort** | Sort the master library by title or artist in O(n log n) |
+| **Play / Pause / Resume** | Play starts fresh, Pause banks elapsed time, Resume picks up exactly where it left off |
 | **Progress Tracking** | Live elapsed time per song — pause-safe, time is banked not reset |
 | **Volume Control** | Set volume 0–100 from the playback menu |
 

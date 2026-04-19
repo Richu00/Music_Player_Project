@@ -232,6 +232,29 @@ class MusicPlayer:
         self.is_playing = False
         print("Paused")
 
+    def resume(self) -> None:
+        """
+        Resume playback of the current song from where it was paused.
+
+        Unlike ``play()``, which resets ``elapsed_before_pause`` to zero
+        and treats the song as freshly started, ``resume()`` picks up the
+        accumulated time exactly where ``pause()`` left off.
+
+        Does nothing if the song is already playing or no song is selected.
+        """
+        if not self.current:
+            print("No song selected.")
+            return
+
+        if self.is_playing:
+            print(f"Already playing: {self.current.song}")
+            return
+
+        # Keep elapsed_before_pause intact — just restart the timer from now
+        self.is_playing      = True
+        self.play_start_time = time.time()
+        print(f"Resumed: {self.current.song}")
+
     def next_song(self) -> None:
         """
         Advance to the next song according to the active mode.
