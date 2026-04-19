@@ -1,0 +1,169 @@
+Sample session — Tunes Music Player
+=====================================
+
+$ python main.py
+
+
+===== TUNES =====
+Current Playlist : None
+Now Playing      : OFF
+Volume           : N/A
+Shuffle          : OFF  |  Repeat : OFF
+
+1. Playlist Options
+2. Edit Current Playlist
+3. Playback Controls
+4. Library Options
+5. Favorites
+0. Exit
+
+Choose option: 1
+
+--- PLAYLIST OPTIONS ---
+
+1. Create Playlist
+2. Create Random Playlist
+3. Switch Playlist
+4. Show All Playlists
+5. Delete Playlist
+6. Rename Playlist
+0. Back
+
+Choose option: 1
+Enter playlist name: My Mix
+Playlist 'My Mix' created and selected.
+
+Choose option: 0
+
+
+===== TUNES =====
+Current Playlist : My Mix
+Now Playing      : OFF
+Volume           : 50
+Shuffle          : OFF  |  Repeat : OFF
+
+Choose option: 2
+
+--- EDIT PLAYLIST (My Mix) ---
+
+1. View Songs
+2. Add Song from Library
+3. Delete Song
+4. Clear Playlist
+0. Back
+
+Choose option: 2
+
+Master Library:
+  1. Into the Night - Yasobi
+  2. Blinding Lights - The Weeknd
+  3. Jo Tum Mere Ho - Anuv Jain
+  4. Mockingbird - Eminem
+  5. Heat Waves - Glass Animals
+  ...
+
+Select song number: 5
+Added: Heat Waves - Glass Animals
+
+Select song number: 2
+Added: Blinding Lights - The Weeknd
+
+Choose option: 1
+
+Playlist : My Mix
+Shuffle  : OFF  |  Repeat : OFF
+
+  1. Heat Waves - Glass Animals
+  2. Blinding Lights - The Weeknd
+
+Choose option: 0
+
+
+Choose option: 3
+
+--- PLAYBACK MENU (My Mix) ---
+
+1. Play
+2. Next
+3. Previous
+4. Pause
+5. Change Volume
+6. Toggle Repeat
+7. Toggle Shuffle
+8. Show Progress
+0. Back
+
+Choose option: 1
+Currently playing: Heat Waves - Glass Animals
+
+Choose option: 8
+  Song    : Heat Waves - Glass Animals
+  Elapsed : 0m 04s
+  Status  : Playing
+
+Choose option: 7
+Shuffle ON
+
+Choose option: 2
+Currently playing: Blinding Lights - The Weeknd
+
+Choose option: 4
+Paused
+
+Choose option: 8
+  Song    : Blinding Lights - The Weeknd
+  Elapsed : 0m 12s
+  Status  : Paused
+
+Choose option: 0
+
+
+Choose option: 5
+
+--- FAVORITES MENU ---
+
+1. Add Current Song to Favorites
+2. Show Favorites
+0. Back
+
+Choose option: 1
+Blinding Lights - The Weeknd added to favorites.
+
+Choose option: 2
+
+Favorite Songs:
+  1. Blinding Lights - The Weeknd
+
+Choose option: 0
+
+
+Choose option: 4
+
+--- LIBRARY MENU ---
+
+1. Search Song
+2. Sort Master Library
+0. Back
+
+Choose option: 1
+Enter song title or artist to search: anuv
+
+Search Results:
+  1. Jo Tum Mere Ho - Anuv Jain
+  2. Husn - Anuv Jain
+  3. Arz Kiya Hai - Anuv Jain
+  4. Gul - Anuv Jain
+  5. Baarishein - Anuv Jain
+  6. Meri Baaton Mein Tu - Anuv Jain
+  7. Alag Aasmaan - Anuv Jain
+  8. Alag Aasmaan - Acoustic - Anuv Jain
+
+Add a song to current playlist? (y/n): y
+Enter result number: 4
+Added: Gul - Anuv Jain
+
+Choose option: 0
+
+
+Choose option: 0
+Goodbye!
