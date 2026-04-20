@@ -1129,6 +1129,22 @@ def favorites_menu() -> None:
         else:               print("Invalid choice.")
 
 
+def show_master_library() -> None:
+    """
+    Print every song in ``master_library``, numbered from 1.
+
+    Displays the total song count in the header.
+    Prints a notice if the library is empty.
+    """
+    if not master_library:
+        print("Master library is empty.")
+        return
+
+    print(f"\nMaster Library ({len(master_library)} songs):")
+    for i, song in enumerate(master_library, 1):
+        print(f"  {i}. {song}")
+
+
 def library_menu() -> None:
     """
     Display the Library Options menu and route user input.
@@ -1137,6 +1153,7 @@ def library_menu() -> None:
     -------
     1  Search the master library by title or artist.
     2  Sort the master library by title or artist.
+    3  Show all songs in the master library.
     0  Return to the main menu.
     """
     while True:
@@ -1145,12 +1162,14 @@ def library_menu() -> None:
 
 1. Search Song
 2. Sort Master Library
+3. Show All Songs
 0. Back
 """)
         choice = input("Choose option: ")
 
         if   choice == "1": search_song()
         elif choice == "2": sort_master_library()
+        elif choice == "3": show_master_library()
         elif choice == "0": break
         else:               print("Invalid choice.")
 
