@@ -199,6 +199,41 @@ class MusicPlayer:
 
     # ── Playback ──────────────────────────────────────────────────────────────
 
+    # Simulated song duration in seconds.
+    # Every song is treated as 3 minutes long. When total elapsed time
+    # exceeds this value the player auto-advances to the next song.
+    SONG_DURATION: int = 180
+
+    def check_and_advance(self) -> None:
+        """
+        Check whether the current song has exceeded its simulated duration
+        and auto-advance to the next song if it has.
+
+        Called at the start of each playback menu loop iteration so that
+        auto-advance is triggered the next time the user interacts with the
+        menu, without requiring a background thread.
+
+        Auto-advance only fires when:
+        - A song is actively playing (not paused).
+        - Total elapsed time has reached or exceeded ``SONG_DURATION``.
+
+        Notes
+        -----
+        When repeat is ON, ``next_song()`` wraps back to the head of the
+        playlist, so auto-advance still works — the playlist just loops.
+        When the last song in the playlist ends and repeat is OFF,
+        ``next_song()`` prints "End of playlist" and stays put.
+        """
+        if not self.is_playing or not self.play_start_time:
+            return   # paused or nothing playing — nothing to check
+
+        # Total elapsed = banked time + live time since last play/resume
+        total_elapsed = self.elapsed_before_pause + (time.time() - self.play_start_time)
+
+        if total_elapsed >= self.SONG_DURATION:
+            print(f"\n  ♪ '{self.current.song}' finished — auto-advancing...")
+            self.next_song()   # respects shuffle and repeat settings
+
     def play(self) -> None:
         """
         Start playing the current song.

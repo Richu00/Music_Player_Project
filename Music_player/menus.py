@@ -165,6 +165,10 @@ def playback_menu() -> None:
         return
 
     while True:
+        # Check whether the current song has finished before rendering the menu.
+        # This is the auto-advance hook — no threads needed.
+        pl.current_playlist.check_and_advance()
+
         print(f"""
 --- PLAYBACK MENU ({pl.current_playlist.name}) ---
 
